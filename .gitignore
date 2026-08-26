@@ -1,0 +1,22 @@
+# Diretorio local de plugins e modulos baixados pelo `terraform init`
+.terraform/
+
+# Arquivos de state - nunca versionados (podem conter dados sensiveis)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Arquivos de variaveis que costumam conter valores sensiveis
+*.tfvars
+*.tfvars.json
+
+# Arquivos de plano salvo (podem conter dados sensiveis do state)
+*.tfplan
+
+# Logs de execucao, se voce usar TF_LOG
+crash.log
+crash.*.log
+
+# IMPORTANTE: .terraform.lock.hcl e a EXCECAO desta lista.
+# Ele DEVE ser versionado no Git (nao o ignore) - registra as versoes
+# exatas dos providers usados, garantindo reprodutibilidade entre maquinas.
