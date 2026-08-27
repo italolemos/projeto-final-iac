@@ -20,3 +20,5 @@ crash.*.log
 # IMPORTANTE: .terraform.lock.hcl e a EXCECAO desta lista.
 # Ele DEVE ser versionado no Git (nao o ignore) - registra as versoes
 # exatas dos providers usados, garantindo reprodutibilidade entre maquinas.
+.ssh/
+*.pem

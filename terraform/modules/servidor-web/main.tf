@@ -24,6 +24,13 @@ resource "aws_key_pair" "main" {
   public_key = tls_private_key.ssh_key.public_key_openssh
 }
 
+# LocalSensitiveFile para salvar a chave privada em um arquivo local
+resource "local_sensitive_file" "ssh_private_key" {
+  filename        = "${path.root}/.ssh/${var.nome_projeto}-${var.environment}.pem"
+  content         = tls_private_key.ssh_key.private_key_openssh
+  file_permission = "0400"
+}
+
 # Instância EC2 t3.micro
 resource "aws_instance" "web" {
   ami                    = data.aws_ami.amazon_linux_2023.id
