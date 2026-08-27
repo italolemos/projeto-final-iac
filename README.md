@@ -197,4 +197,5 @@ terraform destroy -var-file="environments/dev.tfvars"
 ```
 
 ## 7. Evidências do provisionamento da infraestrutura e registro da aplicação
-                        
+
+[Visualizar evidências](./evidencias/)                       
