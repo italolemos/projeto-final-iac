@@ -1,0 +1,18 @@
+---
+- name: Instalar Docker
+  ansible.builtin.dnf:
+    name: docker
+    state: present
+    update_cache: true
+
+- name: Garantir que o serviço Docker esteja habilitado
+  service:
+    name: docker
+    enabled: true
+    state: started
+
+- name: Adicionar usuário ec2-user ao grupo docker
+  ansible.builtin.user:
+    name: ec2-user
+    groups: docker
+    append: true

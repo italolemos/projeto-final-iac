@@ -1,0 +1,6 @@
+---
+- name: Baixar imagem da aplicação
+  community.docker.docker_image:
+    name: "{{ application_image }}"
+    source: pull
+    state: present

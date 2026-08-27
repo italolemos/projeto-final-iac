@@ -1,0 +1,8 @@
+---
+- name: Configurar servidor da aplicação
+  hosts: all
+  become: true
+
+  roles:
+    - docker
+    - aplicacao
