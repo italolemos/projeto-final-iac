@@ -4,3 +4,12 @@
     name: "{{ application_image }}"
     source: pull
     state: present
+
+- name: Criar container da aplicação
+  community.docker.docker_container:
+    name: "{{ application_container_name }}"
+    image: "{{ application_image }}"
+    state: started
+    restart_policy: unless-stopped
+    published_ports:
+      - "{{ application_host_port }}:{{ application_container_port }}"

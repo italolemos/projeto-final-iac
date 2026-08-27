@@ -2,4 +2,4 @@
 application_image: "docker/getting-started"
 application_container_name: "getting-started-app"
 application_host_port: 3000
-application_container_port: 3000
+application_container_port: 80
