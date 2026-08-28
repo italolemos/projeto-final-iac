@@ -1,8 +1,28 @@
 ---
-- name: Baixar imagem da aplicação
+- name: Instalar Git
+  ansible.builtin.dnf:
+    name: git
+    state: present
+
+- name: Clonar repositório da aplicação
+  ansible.builtin.git:
+    repo: "{{ application_repository }}"
+    dest: "{{ application_source_directory }}"
+    clone: yes
+    version: main
+
+- name: Criar Dockerfile da aplicação
+  ansible.builtin.template:
+    src: Dockerfile.j2
+    dest: "{{ application_source_directory }}/Dockerfile"
+    mode: "0644"
+
+- name: Buildar imagem da aplicação
   community.docker.docker_image:
     name: "{{ application_image }}"
-    source: pull
+    source: build
+    build:
+      path: "{{ application_source_directory }}"
     state: present
 
 - name: Criar container da aplicação

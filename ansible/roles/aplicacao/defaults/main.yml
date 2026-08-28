@@ -1,5 +1,7 @@
 ---
-application_image: "docker/getting-started"
+application_image: "getting-started-app"
 application_container_name: "getting-started-app"
 application_host_port: 3000
-application_container_port: 80
+application_container_port: 3000
+application_repository: "https://github.com/docker/getting-started-app.git"
+application_source_directory: "/opt/getting-started-app"
