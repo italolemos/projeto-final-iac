@@ -61,7 +61,7 @@ A arquitetura foi projetada para separar infraestrutura de configuração.
                     |  | Docker Engine       |  |
                     |  |                     |  |
                     |  | getting-started-app |  |
-                    |  | container :80       |  |
+                    |  | container : 3000    |  |
                     |  +---------------------+  |
                     +---------------------------+
 
@@ -82,8 +82,14 @@ A arquitetura foi projetada para separar infraestrutura de configuração.
              docker            aplicacao
                 |                   |
                 v                   v
-        Instala Docker       Cria container
-                              3000:80
+        Instala Docker         Instala Git
+                                   |
+                                   v
+                         Clone e Build da aplicação   
+                                   |
+                                   v
+                            Cria Container
+                               3000:3000             
 ```
 
 ---
